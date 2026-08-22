@@ -52,14 +52,25 @@ The frontend is a static Vite build and is ready to deploy as-is:
 3. Add an Environment Variable: `VITE_API_URL` = the full URL of your deployed backend API, e.g. `https://your-backend.onrender.com/api`
 4. Deploy. `frontend/vercel.json` already handles SPA routing (rewrites all paths to `index.html` so refreshing `/services`, `/admin/dashboard`, etc. doesn't 404).
 
-## Deploying the Backend
+## Deploying the Backend to Vercel
 
-The backend is a plain Express app — deploy it to any Node host (Render, Railway, Fly.io, a VPS, etc.), not Vercel serverless (it uses long-lived Mongoose connections and file uploads). Steps:
+The backend is deployed as its own separate Vercel project (a second project, not a second URL for the same site —
+`frontend/` and `backend/` are two independent deployments). `backend/vercel.json` is already set up to run
+`server.js` as a serverless function.
 
-1. Set all variables from `backend/.env.example` as real environment variables on the host (Mongo URI, JWT secret, Cloudinary, SMTP, etc.).
-2. Set `CLIENT_URL` and `ADMIN_URL` to your deployed Vercel frontend URL (e.g. `https://venthood.vercel.app`) — CORS is locked to these origins.
-3. Start command: `node server.js` (or `npm start` if you add that script).
-4. Once live, come back to Vercel and update `VITE_API_URL` to point at this backend's `/api` base, then redeploy the frontend.
+1. Import the repo into a **new** Vercel project and set **Root Directory** to `backend`.
+2. Framework Preset: **Other** (no build step needed — it's just Node).
+3. Add every variable from `backend/.env.example` as real Environment Variables in that Vercel project's settings
+   (Mongo URI, JWT secret, Cloudinary keys, SMTP creds, etc.).
+4. Set `CLIENT_URL` and `ADMIN_URL` to your deployed **frontend** Vercel URL (e.g. `https://venthood.vercel.app`) —
+   both admin and the public site are the same frontend deployment, so these two values are normally identical;
+   they only exist as two separate env vars in case you ever split them onto different domains.
+5. Deploy. Your API will be live at `https://your-backend.vercel.app/api/...`.
+6. Go back to the **frontend** Vercel project and set `VITE_API_URL=https://your-backend.vercel.app/api`, then redeploy.
+
+Note: Vercel's serverless functions have a request body size limit (4.5MB on the free/Hobby plan). The quote
+request form's image uploads should stay under that — if clients need to upload larger files, move the backend
+to a persistent host (Render/Railway) instead, no code changes required since `server.js` already supports both.
 
 ## TODO Before Launch
 

@@ -61,9 +61,13 @@ app.use((req, res) => {
 // Central error handler
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Venthood backend server running on port ${PORT}`);
-});
+// On Vercel the app is exported as a serverless function handler instead of
+// binding to a port - Vercel's Node runtime calls the exported app directly.
+if (!process.env.VERCEL) {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`Venthood backend server running on port ${PORT}`);
+  });
+}
 
 module.exports = app;
