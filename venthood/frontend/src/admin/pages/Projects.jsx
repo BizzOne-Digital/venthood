@@ -67,7 +67,7 @@ const AdminProjects = () => {
 
   return (
     <div>
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <h1 className="font-heading text-2xl font-bold text-text-dark">Projects</h1>
         <Button onClick={openCreate} variant="primary">
           <Plus size={18} /> Add Project
@@ -114,7 +114,7 @@ const AdminProjects = () => {
 
       {showForm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-          <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-lg space-y-4 rounded-xl bg-white p-6">
+          <form onSubmit={handleSubmit(onSubmit)} className="max-h-[90vh] w-full max-w-lg space-y-4 overflow-y-auto rounded-xl bg-white p-6">
             <div className="flex items-center justify-between">
               <h2 className="font-heading text-lg font-bold text-text-dark">
                 {editing ? 'Edit Project' : 'Add Project'}
