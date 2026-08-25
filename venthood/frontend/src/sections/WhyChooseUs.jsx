@@ -32,6 +32,7 @@ const WhyChooseUs = () => {
           eyebrow="Why Venthood.ca"
           title="Built on Trust and Quality"
           description="We combine technical expertise with honest service to deliver ventilation systems that last."
+          theme="dark"
         />
 
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">

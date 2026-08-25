@@ -2,8 +2,7 @@ import { ShieldCheck, Users, Award } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading.jsx';
 import Button from '../components/Button.jsx';
 
-// NOTE: placeholder photo - replace with a real team/job-site photo.
-const PLACEHOLDER = 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80';
+const PLACEHOLDER = '/hero.png';
 
 const About = () => {
   return (
@@ -30,7 +29,7 @@ const About = () => {
         </div>
 
         <div className="overflow-hidden rounded-xl">
-          <img src={PLACEHOLDER} alt="Venthood.ca technician at work" className="h-full w-full object-cover" />
+          <img src={PLACEHOLDER} alt="Professionally installed range hood ventilation system" className="h-full w-full object-cover" />
         </div>
       </div>
 

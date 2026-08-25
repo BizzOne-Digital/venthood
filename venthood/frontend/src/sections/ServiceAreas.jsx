@@ -9,7 +9,7 @@ const ServiceAreas = ({ areas }) => {
   return (
     <section className="bg-black py-16 text-warm-white">
       <div className="container-custom">
-        <SectionHeading eyebrow="Where We Work" title="Proudly Serving Calgary & Area" />
+        <SectionHeading eyebrow="Where We Work" title="Proudly Serving Calgary & Area" theme="dark" />
 
         <div className="flex flex-wrap justify-center gap-4">
           {list.map((area) => (
