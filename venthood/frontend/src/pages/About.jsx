@@ -2,7 +2,7 @@ import { ShieldCheck, Users, Award } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading.jsx';
 import Button from '../components/Button.jsx';
 
-const PLACEHOLDER = '/hero.png';
+const ABOUT_IMAGE = '/about.png';
 
 const About = () => {
   return (
@@ -29,7 +29,7 @@ const About = () => {
         </div>
 
         <div className="overflow-hidden rounded-xl">
-          <img src={PLACEHOLDER} alt="Professionally installed range hood ventilation system" className="h-full w-full object-cover" />
+          <img src={ABOUT_IMAGE} alt="Venthood.ca technician installing a range hood" className="h-full w-full object-cover" />
         </div>
       </div>
 
