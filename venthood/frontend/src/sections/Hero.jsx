@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { ShieldCheck, Clock, Award } from 'lucide-react';
 import Button from '../components/Button.jsx';
 
-const PLACEHOLDER = '/hero.png';
+const PLACEHOLDER = '/hero1.png';
 
 const Hero = ({ settings }) => {
   const heading = settings?.heroHeading || "Calgary's Trusted Range Hood & Ventilation Experts";
