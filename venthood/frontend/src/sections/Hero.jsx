@@ -3,6 +3,7 @@ import { ShieldCheck, Clock, Award } from 'lucide-react';
 import Button from '../components/Button.jsx';
 
 const PLACEHOLDER = '/hero1.png';
+const MOBILE_PLACEHOLDER = '/mobile-hero.png';
 
 const Hero = ({ settings }) => {
   const heading = settings?.heroHeading || "Calgary's Trusted Range Hood & Ventilation Experts";
@@ -13,11 +14,14 @@ const Hero = ({ settings }) => {
   return (
     <section className="relative overflow-hidden bg-black">
       <div className="absolute inset-0">
-        <img
-          src={settings?.heroImage || PLACEHOLDER}
-          alt="Modern kitchen range hood installation"
-          className="h-full w-full object-cover"
-        />
+        <picture>
+          {!settings?.heroImage && <source media="(max-width: 767px)" srcSet={MOBILE_PLACEHOLDER} />}
+          <img
+            src={settings?.heroImage || PLACEHOLDER}
+            alt="Modern kitchen range hood installation"
+            className="h-full w-full object-cover"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
       </div>
 
