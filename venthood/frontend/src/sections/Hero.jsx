@@ -22,7 +22,7 @@ const Hero = ({ settings }) => {
             className="h-full w-full object-cover"
           />
         </picture>
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/25 to-transparent sm:from-black sm:via-black/60" />
       </div>
 
       <div className="container-custom relative z-10 flex min-h-[85vh] flex-col items-start justify-center py-24">
@@ -38,7 +38,7 @@ const Hero = ({ settings }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="max-w-3xl font-heading text-4xl font-extrabold leading-tight text-warm-white sm:text-5xl lg:text-6xl"
+          className="max-w-3xl font-heading text-3xl font-extrabold leading-tight text-warm-white sm:text-5xl lg:text-6xl"
         >
           {heading}
         </motion.h1>
@@ -47,7 +47,7 @@ const Hero = ({ settings }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="mt-6 max-w-xl text-lg text-warm-white/80"
+          className="mt-6 max-w-xl text-base text-warm-white/80 sm:text-lg"
         >
           {description}
         </motion.p>
@@ -58,10 +58,10 @@ const Hero = ({ settings }) => {
           transition={{ delay: 0.3 }}
           className="mt-8 flex flex-wrap gap-4"
         >
-          <Button to="/request-quote" variant="primary">
+          <Button to="/request-quote" variant="primary" className="px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base">
             Request a Quote
           </Button>
-          <Button to="/book-appointment" variant="outline">
+          <Button to="/book-appointment" variant="outline" className="px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base">
             Book an Appointment
           </Button>
         </motion.div>
