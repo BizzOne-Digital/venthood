@@ -22,7 +22,7 @@ const Hero = ({ settings }) => {
             className="h-full w-full object-cover"
           />
         </picture>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/25 to-transparent sm:from-black sm:via-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-black/75 sm:bg-gradient-to-r sm:from-black sm:via-black/60 sm:to-transparent" />
       </div>
 
       <div className="container-custom relative z-10 flex min-h-[85vh] flex-col items-start justify-center py-24">
