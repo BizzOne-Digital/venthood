@@ -26,7 +26,7 @@ const Hero = ({ settings }) => {
 
       <div
         className="container-custom relative z-10 flex min-h-[85vh] flex-col items-start justify-center py-24"
-        style={{ textShadow: '0 2px 10px rgba(0,0,0,0.85)' }}
+        style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}
       >
         <motion.span
           initial={{ opacity: 0, y: 10 }}
