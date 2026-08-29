@@ -22,10 +22,12 @@ const Hero = ({ settings }) => {
             className="h-full w-full object-cover"
           />
         </picture>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-black/75 sm:bg-gradient-to-r sm:from-black sm:via-black/60 sm:to-transparent" />
       </div>
 
-      <div className="container-custom relative z-10 flex min-h-[85vh] flex-col items-start justify-center py-24">
+      <div
+        className="container-custom relative z-10 flex min-h-[85vh] flex-col items-start justify-center py-24"
+        style={{ textShadow: '0 2px 10px rgba(0,0,0,0.85)' }}
+      >
         <motion.span
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
