@@ -3,9 +3,11 @@ import api from '../services/api';
 import Hero from '../sections/Hero.jsx';
 import TrustBar from '../sections/TrustBar.jsx';
 import ServicesGrid from '../sections/ServicesGrid.jsx';
+import ShowcaseCollage from '../sections/ShowcaseCollage.jsx';
 import RecentProjects from '../sections/RecentProjects.jsx';
 import StatsCounter from '../sections/StatsCounter.jsx';
 import WhyChooseUs from '../sections/WhyChooseUs.jsx';
+import GalleryPreview from '../sections/GalleryPreview.jsx';
 import BookingCTA from '../sections/BookingCTA.jsx';
 import Testimonials from '../sections/Testimonials.jsx';
 import Process from '../sections/Process.jsx';
@@ -51,9 +53,11 @@ const Home = () => {
       <Hero settings={settings} />
       <TrustBar />
       <ServicesGrid services={services} loading={loading} />
+      <ShowcaseCollage />
       <StatsCounter />
       <RecentProjects projects={projects} loading={loading} />
       <WhyChooseUs />
+      <GalleryPreview />
       <BookingCTA />
       <Testimonials testimonials={testimonials} loading={loading} />
       <Process />
