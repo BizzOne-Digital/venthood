@@ -6,6 +6,7 @@ import ServicesGrid from '../sections/ServicesGrid.jsx';
 import ShowcaseCollage from '../sections/ShowcaseCollage.jsx';
 import RecentProjects from '../sections/RecentProjects.jsx';
 import StatsCounter from '../sections/StatsCounter.jsx';
+import ServiceHighlight from '../sections/ServiceHighlight.jsx';
 import WhyChooseUs from '../sections/WhyChooseUs.jsx';
 import GalleryPreview from '../sections/GalleryPreview.jsx';
 import BookingCTA from '../sections/BookingCTA.jsx';
@@ -54,6 +55,7 @@ const Home = () => {
       <TrustBar />
       <ServicesGrid services={services} loading={loading} />
       <ShowcaseCollage />
+      <ServiceHighlight />
       <StatsCounter />
       <RecentProjects projects={projects} loading={loading} />
       <WhyChooseUs />
