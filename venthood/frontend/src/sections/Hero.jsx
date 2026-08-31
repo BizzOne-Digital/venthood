@@ -2,7 +2,8 @@ import { motion } from 'framer-motion';
 import { ShieldCheck, Clock, Award } from 'lucide-react';
 import Button from '../components/Button.jsx';
 
-const PLACEHOLDER = '/786176294_1474851221127941_1562602384611675836_n.jpg';
+const PLACEHOLDER = '/hero1.png';
+const MOBILE_PLACEHOLDER = '/mobile-hero.png';
 
 const Hero = ({ settings }) => {
   const heading = settings?.heroHeading || "Calgary's Trusted Range Hood & Ventilation Experts";
@@ -71,11 +72,14 @@ const Hero = ({ settings }) => {
         </div>
 
         <div className="flex h-72 w-full items-center justify-center overflow-hidden rounded-xl bg-charcoal sm:h-96 lg:h-[85vh] lg:rounded-none">
-          <img
-            src={settings?.heroImage || PLACEHOLDER}
-            alt="Range hood installed by Venthood.ca showing the complete unit"
-            className="h-full w-full object-contain"
-          />
+          <picture>
+            {!settings?.heroImage && <source media="(max-width: 767px)" srcSet={MOBILE_PLACEHOLDER} />}
+            <img
+              src={settings?.heroImage || PLACEHOLDER}
+              alt="Range hood installed by Venthood.ca showing the complete unit"
+              className="h-full w-full object-contain"
+            />
+          </picture>
         </div>
       </div>
     </section>
