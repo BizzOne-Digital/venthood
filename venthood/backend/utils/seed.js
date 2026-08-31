@@ -177,68 +177,10 @@ const faqs = [
   },
 ];
 
-const projects = [
-  {
-    title: 'Island Range Hood Install - Calgary NW',
-    description: 'Custom island range hood with ceiling-routed ductwork for an open-concept kitchen renovation.',
-    location: 'Calgary, AB',
-    category: 'Island Range Hood Installation',
-    featuredImage: 'https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=1200',
-    images: ['https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=1200'],
-    featured: true,
-    visible: true,
-  },
-  {
-    title: 'Chimney-Style Hood Upgrade',
-    description: 'Replaced an outdated under-cabinet hood with a statement chimney-style hood and new wall venting.',
-    location: 'Airdrie, AB',
-    category: 'Chimney-Style Range Hood Installation',
-    featuredImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200',
-    images: ['https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200'],
-    featured: true,
-    visible: true,
-  },
-  {
-    title: 'Roof Exhaust Vent Install',
-    description: 'New roof exhaust vent with proper flashing and sealing for a two-storey home.',
-    location: 'Cochrane, AB',
-    category: 'Roof Exhaust Vent Installation',
-    featuredImage: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=1200',
-    images: ['https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=1200'],
-    featured: false,
-    visible: true,
-  },
-  {
-    title: 'Under-Cabinet Hood Replacement',
-    description: 'Swapped a noisy old under-cabinet hood for a quiet, efficient modern unit.',
-    location: 'Calgary, AB',
-    category: 'Under-Cabinet Range Hood Installation',
-    featuredImage: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=1200',
-    images: ['https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=1200'],
-    featured: false,
-    visible: true,
-  },
-  {
-    title: 'Kitchen Exhaust Ductwork Redesign',
-    description: 'Redesigned exhaust ductwork routing to reduce bends and improve airflow efficiency.',
-    location: 'Okotoks, AB',
-    category: 'Range Hood Ductwork',
-    featuredImage: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200',
-    images: ['https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200'],
-    featured: false,
-    visible: true,
-  },
-  {
-    title: 'Attic Duct Insulation Project',
-    description: 'Insulated and sealed exhaust ductwork running through an unheated attic space.',
-    location: 'Chestermere, AB',
-    category: 'Attic Duct Insulation & Sealing',
-    featuredImage: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1200',
-    images: ['https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1200'],
-    featured: false,
-    visible: true,
-  },
-];
+// Real project photos are added separately (see the admin Projects page) rather
+// than seeded here, so this list intentionally stays empty - do not add stock
+// photo placeholders back in.
+const projects = [];
 
 const seed = async () => {
   const uri = process.env.MONGODB_URI;
