@@ -26,7 +26,7 @@ const Hero = ({ settings }) => {
 
       <div
         className="container-custom relative z-10 flex min-h-[85vh] flex-col items-start justify-center py-24"
-        style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}
+        style={{ textShadow: '0 1px 3px rgba(255,255,255,0.7)' }}
       >
         <motion.span
           initial={{ opacity: 0, y: 10 }}
@@ -40,7 +40,7 @@ const Hero = ({ settings }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="max-w-3xl font-heading text-3xl font-extrabold leading-tight text-warm-white sm:text-5xl lg:text-6xl"
+          className="max-w-3xl font-heading text-3xl font-extrabold leading-tight text-text-dark sm:text-5xl lg:text-6xl"
         >
           {heading}
         </motion.h1>
@@ -49,7 +49,7 @@ const Hero = ({ settings }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="mt-6 max-w-xl text-base text-warm-white/80 sm:text-lg"
+          className="mt-6 max-w-xl text-base text-text-dark/80 sm:text-lg"
         >
           {description}
         </motion.p>
@@ -68,7 +68,7 @@ const Hero = ({ settings }) => {
           </Button>
         </motion.div>
 
-        <div className="mt-12 flex flex-wrap gap-8 text-warm-white/80">
+        <div className="mt-12 flex flex-wrap gap-8 text-text-dark/80">
           <div className="flex items-center gap-2">
             <ShieldCheck className="text-gold" size={20} />
             <span className="text-sm">Licensed & Insured</span>
