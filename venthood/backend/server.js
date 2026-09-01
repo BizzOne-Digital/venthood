@@ -10,11 +10,21 @@ const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 
-// Connect to MongoDB (does not crash server if it fails)
-connectDB().catch((err) => console.error('DB connection failed:', err.message));
-
 // Security & core middleware
 app.use(helmet());
+
+// Ensure the MongoDB connection is established (or has clearly failed) before
+// any route handler runs a query - avoids the generic "buffering timed out"
+// error masking the real connection failure.
+app.use((req, res, next) => {
+  if (req.path === '/api/health') return next();
+  connectDB()
+    .then(() => next())
+    .catch((err) => {
+      console.error('DB connection failed for request:', err.message);
+      res.status(500).json({ success: false, message: `Database connection failed: ${err.message}` });
+    });
+});
 
 const allowedOrigins = [process.env.CLIENT_URL, process.env.ADMIN_URL].filter(Boolean);
 app.use(
