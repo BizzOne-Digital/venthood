@@ -13,15 +13,31 @@ const Hero = ({ settings }) => {
 
   return (
     <section className="relative overflow-hidden bg-black">
-      <div className="absolute inset-0">
-        <picture>
-          {!settings?.heroImage && <source media="(max-width: 767px)" srcSet={MOBILE_PLACEHOLDER} />}
+      {/* Mobile: blurred backdrop fill + contained sharp image, so the full hood
+          shows with breathing room and no hard black bars around it. */}
+      {!settings?.heroImage && (
+        <div className="absolute inset-0 sm:hidden">
           <img
-            src={settings?.heroImage || PLACEHOLDER}
-            alt="Modern kitchen range hood installation"
-            className="h-full w-full object-cover"
+            src={MOBILE_PLACEHOLDER}
+            alt=""
+            aria-hidden="true"
+            className="h-full w-full scale-110 object-cover object-center blur-2xl brightness-75"
           />
-        </picture>
+          <img
+            src={MOBILE_PLACEHOLDER}
+            alt="Modern kitchen range hood installation"
+            className="absolute inset-0 h-full w-full object-contain p-6"
+          />
+        </div>
+      )}
+
+      {/* Desktop, and mobile when a custom settings image is set */}
+      <div className={`absolute inset-0 ${!settings?.heroImage ? 'hidden sm:block' : ''}`}>
+        <img
+          src={settings?.heroImage || PLACEHOLDER}
+          alt="Modern kitchen range hood installation"
+          className="h-full w-full object-cover"
+        />
       </div>
 
       <div
