@@ -19,7 +19,7 @@ const Hero = ({ settings }) => {
           <img
             src={settings?.heroImage || PLACEHOLDER}
             alt="Modern kitchen range hood installation"
-            className="h-full w-full object-cover"
+            className="h-full w-full scale-75 object-cover sm:scale-90"
           />
         </picture>
       </div>
