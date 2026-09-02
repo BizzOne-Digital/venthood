@@ -24,7 +24,7 @@ const Hero = ({ settings }) => {
         </picture>
       </div>
 
-      <div className="container-custom relative z-10 flex min-h-[100dvh] flex-col justify-end gap-4 pb-8 pt-24 sm:min-h-[85vh] sm:justify-center sm:gap-0 sm:py-24">
+      <div className="container-custom relative z-10 flex min-h-[100dvh] flex-col justify-end gap-4 pb-24 pt-24 sm:min-h-[85vh] sm:justify-center sm:gap-0 sm:pb-0 sm:py-24">
         <div className="rounded-xl bg-black/85 p-3 sm:rounded-2xl sm:bg-transparent sm:p-0">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
