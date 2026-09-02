@@ -24,18 +24,14 @@ const Hero = ({ settings }) => {
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        <div className="absolute inset-x-2 bottom-2 top-[58%] z-10 flex flex-col justify-center gap-1 overflow-hidden rounded-xl bg-black/90 px-3 py-2">
-          <span className="inline-block w-fit rounded-full border border-gold/40 bg-gold/10 px-2 py-0.5 text-[10px] font-medium text-gold">
+        <div className="absolute inset-x-2 bottom-2 top-[54%] z-10 flex flex-col justify-start gap-1.5 overflow-hidden rounded-xl bg-black/90 px-3 py-2">
+          <span className="inline-block w-fit rounded-full border border-gold/40 bg-gold/10 px-2 py-0.5 text-[9px] font-medium text-gold">
             Calgary & Surrounding Areas Alberta
           </span>
 
-          <h1 className="line-clamp-2 font-heading text-base font-extrabold leading-tight text-warm-white">
-            {heading}
-          </h1>
+          <h1 className="line-clamp-2 font-heading text-sm font-extrabold leading-snug text-warm-white">{heading}</h1>
 
-          <p className="line-clamp-1 text-[10px] text-warm-white/80">{description}</p>
-
-          <div className="mt-1 flex flex-wrap gap-1.5">
+          <div className="flex flex-wrap gap-1.5">
             <Button to="/request-quote" variant="primary" className="px-2 py-1 text-[10px]">
               Request a Quote
             </Button>
@@ -44,18 +40,18 @@ const Hero = ({ settings }) => {
             </Button>
           </div>
 
-          <div className="mt-1 flex flex-wrap gap-2 text-warm-white/80">
+          <div className="flex flex-wrap gap-2 text-warm-white/80">
             <div className="flex items-center gap-1">
-              <ShieldCheck className="text-gold" size={11} />
-              <span className="text-[10px]">Licensed & Insured</span>
+              <ShieldCheck className="text-gold" size={10} />
+              <span className="text-[9px]">Licensed & Insured</span>
             </div>
             <div className="flex items-center gap-1">
-              <Clock className="text-gold" size={11} />
-              <span className="text-[10px]">Fast Response</span>
+              <Clock className="text-gold" size={10} />
+              <span className="text-[9px]">Fast Response</span>
             </div>
             <div className="flex items-center gap-1">
-              <Award className="text-gold" size={11} />
-              <span className="text-[10px]">Quality Guaranteed</span>
+              <Award className="text-gold" size={10} />
+              <span className="text-[9px]">Quality Guaranteed</span>
             </div>
           </div>
         </div>
