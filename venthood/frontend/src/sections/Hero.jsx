@@ -17,50 +17,48 @@ const Hero = ({ settings }) => {
           screen WIDTH, never by viewport height), so the card overlaps the
           exact same spot in the photo - just below the hood - on every phone,
           regardless of screen height or browser chrome. */}
-      <div className="sm:hidden">
-        <div className="aspect-[941/1672] w-full overflow-hidden">
-          <img
-            src={settings?.heroImage || MOBILE_PLACEHOLDER}
-            alt="Modern kitchen range hood installation"
-            className="h-full w-full object-cover"
-          />
-        </div>
+      <div className="relative aspect-[941/1672] w-full overflow-hidden sm:hidden">
+        <img
+          src={settings?.heroImage || MOBILE_PLACEHOLDER}
+          alt="Modern kitchen range hood installation"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
 
-        <div className="relative z-10 mx-3 -mt-[44%] rounded-2xl bg-black/90 p-4">
-          <span className="mb-2 inline-block rounded-full border border-gold/40 bg-gold/10 px-3 py-0.5 text-xs font-medium text-gold">
+        <div className="absolute inset-x-2 bottom-2 top-[58%] z-10 flex flex-col justify-center gap-1 overflow-hidden rounded-xl bg-black/90 px-3 py-2">
+          <span className="inline-block w-fit rounded-full border border-gold/40 bg-gold/10 px-2 py-0.5 text-[10px] font-medium text-gold">
             Calgary & Surrounding Areas Alberta
           </span>
 
-          <h1 className="max-w-3xl font-heading text-xl font-extrabold leading-tight text-warm-white">{heading}</h1>
+          <h1 className="line-clamp-2 font-heading text-base font-extrabold leading-tight text-warm-white">
+            {heading}
+          </h1>
 
-          <p className="mt-2 max-w-xl text-xs text-warm-white/80">{description}</p>
+          <p className="line-clamp-1 text-[10px] text-warm-white/80">{description}</p>
 
-          <div className="mt-3 flex flex-wrap gap-2">
-            <Button to="/request-quote" variant="primary" className="px-3 py-1.5 text-xs">
+          <div className="mt-1 flex flex-wrap gap-1.5">
+            <Button to="/request-quote" variant="primary" className="px-2 py-1 text-[10px]">
               Request a Quote
             </Button>
-            <Button to="/book-appointment" variant="outline" className="px-3 py-1.5 text-xs">
+            <Button to="/book-appointment" variant="outline" className="px-2 py-1 text-[10px]">
               Book an Appointment
             </Button>
           </div>
 
-          <div className="mt-4 flex flex-wrap gap-3 text-warm-white/80">
-            <div className="flex items-center gap-1.5">
-              <ShieldCheck className="text-gold" size={14} />
-              <span className="text-xs">Licensed & Insured</span>
+          <div className="mt-1 flex flex-wrap gap-2 text-warm-white/80">
+            <div className="flex items-center gap-1">
+              <ShieldCheck className="text-gold" size={11} />
+              <span className="text-[10px]">Licensed & Insured</span>
             </div>
-            <div className="flex items-center gap-1.5">
-              <Clock className="text-gold" size={14} />
-              <span className="text-xs">Fast Response</span>
+            <div className="flex items-center gap-1">
+              <Clock className="text-gold" size={11} />
+              <span className="text-[10px]">Fast Response</span>
             </div>
-            <div className="flex items-center gap-1.5">
-              <Award className="text-gold" size={14} />
-              <span className="text-xs">Quality Guaranteed</span>
+            <div className="flex items-center gap-1">
+              <Award className="text-gold" size={11} />
+              <span className="text-[10px]">Quality Guaranteed</span>
             </div>
           </div>
         </div>
-
-        <div className="h-6" />
       </div>
 
       {/* Desktop: full-bleed background image with overlaid content */}
