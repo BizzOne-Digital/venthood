@@ -24,34 +24,44 @@ const Hero = ({ settings }) => {
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        <div className="absolute inset-x-2 top-[54%] z-10 flex max-h-[44%] flex-col justify-start gap-1.5 overflow-hidden rounded-xl bg-black px-3 py-2">
-          <span className="inline-block w-fit rounded-full border border-gold/40 bg-gold/10 px-2 py-0.5 text-[9px] font-medium text-gold">
+        <div className="absolute inset-x-2 top-[54%] z-10 flex max-h-[44%] flex-col justify-start gap-[1.5vw] overflow-hidden rounded-xl bg-black px-[3vw] py-[2vw]">
+          <span className="inline-block w-fit rounded-full border border-gold/40 bg-gold/10 px-[2.5vw] py-[0.8vw] text-[clamp(9px,2.8vw,13px)] font-medium text-gold">
             Calgary & Surrounding Areas Alberta
           </span>
 
-          <h1 className="line-clamp-2 font-heading text-sm font-extrabold leading-snug text-warm-white">{heading}</h1>
+          <h1 className="line-clamp-2 font-heading text-[clamp(15px,5vw,24px)] font-extrabold leading-snug text-warm-white">
+            {heading}
+          </h1>
 
-          <div className="flex flex-wrap gap-1.5">
-            <Button to="/request-quote" variant="primary" className="px-2 py-1 text-[10px]">
+          <div className="flex flex-wrap gap-[1.5vw]">
+            <Button
+              to="/request-quote"
+              variant="primary"
+              className="px-[3vw] py-[1.8vw] text-[clamp(10px,3vw,15px)]"
+            >
               Request a Quote
             </Button>
-            <Button to="/book-appointment" variant="outline" className="px-2 py-1 text-[10px]">
+            <Button
+              to="/book-appointment"
+              variant="outline"
+              className="px-[3vw] py-[1.8vw] text-[clamp(10px,3vw,15px)]"
+            >
               Book an Appointment
             </Button>
           </div>
 
-          <div className="flex flex-wrap gap-2 text-warm-white/80">
+          <div className="flex flex-wrap gap-[2.5vw] text-warm-white/80">
             <div className="flex items-center gap-1">
-              <ShieldCheck className="text-gold" size={10} />
-              <span className="text-[9px]">Licensed & Insured</span>
+              <ShieldCheck className="text-gold" size={14} />
+              <span className="text-[clamp(9px,2.8vw,13px)]">Licensed & Insured</span>
             </div>
             <div className="flex items-center gap-1">
-              <Clock className="text-gold" size={10} />
-              <span className="text-[9px]">Fast Response</span>
+              <Clock className="text-gold" size={14} />
+              <span className="text-[clamp(9px,2.8vw,13px)]">Fast Response</span>
             </div>
             <div className="flex items-center gap-1">
-              <Award className="text-gold" size={10} />
-              <span className="text-[9px]">Quality Guaranteed</span>
+              <Award className="text-gold" size={14} />
+              <span className="text-[clamp(9px,2.8vw,13px)]">Quality Guaranteed</span>
             </div>
           </div>
         </div>
