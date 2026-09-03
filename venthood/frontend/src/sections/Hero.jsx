@@ -24,7 +24,7 @@ const Hero = ({ settings }) => {
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        <div className="absolute inset-x-2 bottom-2 top-[54%] z-10 flex flex-col justify-start gap-1.5 overflow-hidden rounded-xl bg-black/90 px-3 py-2">
+        <div className="absolute inset-x-2 top-[54%] z-10 flex max-h-[44%] flex-col justify-start gap-1.5 overflow-hidden rounded-xl bg-black px-3 py-2">
           <span className="inline-block w-fit rounded-full border border-gold/40 bg-gold/10 px-2 py-0.5 text-[9px] font-medium text-gold">
             Calgary & Surrounding Areas Alberta
           </span>
