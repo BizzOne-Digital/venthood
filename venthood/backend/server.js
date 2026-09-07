@@ -10,6 +10,11 @@ const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 
+// Vercel (and most PaaS hosts) sit behind a reverse proxy and forward the
+// real client IP via X-Forwarded-For - without this, express-rate-limit
+// can't reliably identify users and logs a warning on every request.
+app.set('trust proxy', 1);
+
 // Security & core middleware
 app.use(helmet());
 
