@@ -24,19 +24,20 @@ const sendMail = async ({ to, subject, html, text }) => {
   try {
     const t = getTransporter();
     if (!t) {
-      console.warn('Mailer: SMTP credentials not configured, skipping email send.');
+      console.warn(`Mailer: SMTP credentials not configured, skipping email send. [to=${to}, subject="${subject}"]`);
       return false;
     }
-    await t.sendMail({
+    const info = await t.sendMail({
       from: `"Venthood.ca" <${process.env.SMTP_USER}>`,
       to,
       subject,
       html,
       text,
     });
+    console.log(`Mailer: email sent successfully. [to=${to}, subject="${subject}", messageId=${info.messageId}]`);
     return true;
   } catch (err) {
-    console.error('Mailer error:', err.message);
+    console.error(`Mailer: email FAILED to send. [to=${to}, subject="${subject}"] Error: ${err.message}`);
     return false;
   }
 };
