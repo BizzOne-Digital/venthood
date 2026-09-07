@@ -14,20 +14,23 @@ exports.createBooking = async (req, res, next) => {
 
     const booking = await Booking.create(bookingData);
 
-    // Fire-and-forget notifications - never block the response
-    sendMail({
-      to: process.env.CONTACT_RECEIVER,
-      subject: `New Booking Request - ${booking.name}`,
-      html: `<p>New booking request received.</p>
-        <p><b>Name:</b> ${booking.name}<br/>
-        <b>Email:</b> ${booking.email}<br/>
-        <b>Phone:</b> ${booking.phone}<br/>
-        <b>Date/Time:</b> ${booking.date} ${booking.time}<br/>
-        <b>Address:</b> ${booking.address}<br/>
-        <b>Notes:</b> ${booking.notes || 'N/A'}</p>`,
-    }).catch((e) => console.error(e));
-
-    sendLeadToCRM({ type: 'booking', ...booking.toObject() }).catch((e) => console.error(e));
+    // Awaited (not fire-and-forget) - on serverless platforms like Vercel the
+    // function can be frozen/terminated as soon as the response is sent, so a
+    // detached async call here would often never finish sending the email.
+    await Promise.allSettled([
+      sendMail({
+        to: process.env.CONTACT_RECEIVER,
+        subject: `New Booking Request - ${booking.name}`,
+        html: `<p>New booking request received.</p>
+          <p><b>Name:</b> ${booking.name}<br/>
+          <b>Email:</b> ${booking.email}<br/>
+          <b>Phone:</b> ${booking.phone}<br/>
+          <b>Date/Time:</b> ${booking.date} ${booking.time}<br/>
+          <b>Address:</b> ${booking.address}<br/>
+          <b>Notes:</b> ${booking.notes || 'N/A'}</p>`,
+      }),
+      sendLeadToCRM({ type: 'booking', ...booking.toObject() }),
+    ]);
 
     res.status(201).json({ success: true, booking });
   } catch (err) {
@@ -66,7 +69,7 @@ exports.updateBooking = async (req, res, next) => {
     });
 
     if (req.body.status && req.body.status !== previous.status) {
-      sendMail({
+      await sendMail({
         to: booking.email,
         subject: `Your Venthood.ca Booking is now "${booking.status}"`,
         html: `<p>Hi ${booking.name},</p>

@@ -23,19 +23,23 @@ exports.createQuote = async (req, res, next) => {
 
     const quote = await QuoteRequest.create(quoteData);
 
-    sendMail({
-      to: process.env.CONTACT_RECEIVER,
-      subject: `New Quote Request - ${quote.name}`,
-      html: `<p>New quote request received.</p>
-        <p><b>Name:</b> ${quote.name}<br/>
-        <b>Email:</b> ${quote.email}<br/>
-        <b>Phone:</b> ${quote.phone}<br/>
-        <b>Service:</b> ${quote.service}<br/>
-        <b>Address:</b> ${quote.address || 'N/A'}, ${quote.city || ''}<br/>
-        <b>Details:</b> ${quote.details || 'N/A'}</p>`,
-    }).catch((e) => console.error(e));
-
-    sendLeadToCRM({ type: 'quote', ...quote.toObject() }).catch((e) => console.error(e));
+    // Awaited (not fire-and-forget) - on serverless platforms like Vercel the
+    // function can be frozen/terminated as soon as the response is sent, so a
+    // detached async call here would often never finish sending the email.
+    await Promise.allSettled([
+      sendMail({
+        to: process.env.CONTACT_RECEIVER,
+        subject: `New Quote Request - ${quote.name}`,
+        html: `<p>New quote request received.</p>
+          <p><b>Name:</b> ${quote.name}<br/>
+          <b>Email:</b> ${quote.email}<br/>
+          <b>Phone:</b> ${quote.phone}<br/>
+          <b>Service:</b> ${quote.service}<br/>
+          <b>Address:</b> ${quote.address || 'N/A'}, ${quote.city || ''}<br/>
+          <b>Details:</b> ${quote.details || 'N/A'}</p>`,
+      }),
+      sendLeadToCRM({ type: 'quote', ...quote.toObject() }),
+    ]);
 
     res.status(201).json({ success: true, quote });
   } catch (err) {
