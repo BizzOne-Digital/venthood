@@ -38,6 +38,14 @@ exports.createQuote = async (req, res, next) => {
           <b>Address:</b> ${quote.address || 'N/A'}, ${quote.city || ''}<br/>
           <b>Details:</b> ${quote.details || 'N/A'}</p>`,
       }),
+      sendMail({
+        to: quote.email,
+        subject: 'We received your quote request - Venthood.ca',
+        html: `<p>Hi ${quote.name},</p>
+          <p>Thanks for requesting a quote from Venthood.ca. We've received your request for <b>${quote.service}</b> and will be in touch shortly with pricing and next steps.</p>
+          <p><b>Details you provided:</b><br/>${quote.details || 'N/A'}</p>
+          <p>Venthood.ca</p>`,
+      }),
       sendLeadToCRM({ type: 'quote', ...quote.toObject() }),
     ]);
 

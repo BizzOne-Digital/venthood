@@ -29,6 +29,14 @@ exports.createBooking = async (req, res, next) => {
           <b>Address:</b> ${booking.address}<br/>
           <b>Notes:</b> ${booking.notes || 'N/A'}</p>`,
       }),
+      sendMail({
+        to: booking.email,
+        subject: 'We received your booking request - Venthood.ca',
+        html: `<p>Hi ${booking.name},</p>
+          <p>Thanks for booking with Venthood.ca. We've received your request for <b>${booking.date} ${booking.time}</b> and will confirm shortly.</p>
+          <p><b>Address:</b> ${booking.address}</p>
+          <p>Venthood.ca</p>`,
+      }),
       sendLeadToCRM({ type: 'booking', ...booking.toObject() }),
     ]);
 
