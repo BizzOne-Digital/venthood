@@ -1,10 +1,10 @@
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
 import api from '../services/api';
 import SectionHeading from '../components/SectionHeading.jsx';
 import Button from '../components/Button.jsx';
-import { PHONES, EMAIL, SERVICE_AREA } from '../utils/constants';
+import { PHONES, EMAIL, SERVICE_AREA, FACEBOOK_URL, INSTAGRAM_URL } from '../utils/constants';
 
 const Contact = () => {
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm();
@@ -48,6 +48,37 @@ const Contact = () => {
               <MapPin className="text-gold" size={22} />
               <span className="text-text-dark">{SERVICE_AREA}</span>
             </div>
+
+            <div className="flex items-center gap-4 pt-2">
+              <a
+                href={FACEBOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="text-text-dark hover:text-gold"
+              >
+                <Facebook size={22} />
+              </a>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-text-dark hover:text-gold"
+              >
+                <Instagram size={22} />
+              </a>
+            </div>
+
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block overflow-hidden rounded-lg"
+              aria-label="Follow us on Instagram - @vent.hood"
+            >
+              <img src="/insstaqr.jpg" alt="Instagram QR code - @vent.hood" className="h-28 w-28 object-cover" />
+            </a>
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 rounded-xl border border-border-light bg-white p-6">
