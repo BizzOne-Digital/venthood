@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
-import { NAV_LINKS, PHONES, EMAIL, SERVICE_AREA } from '../utils/constants';
+import { NAV_LINKS, PHONES, EMAIL, SERVICE_AREA, FACEBOOK_URL, INSTAGRAM_URL } from '../utils/constants';
 
 const Footer = () => {
   return (
@@ -13,14 +13,36 @@ const Footer = () => {
           <p className="mt-4 text-sm text-warm-white/60">
             Calgary's trusted range hood installation and kitchen exhaust ventilation experts.
           </p>
-          <div className="mt-4 flex gap-4">
-            <a href="#" aria-label="Facebook" className="text-warm-white/60 hover:text-gold">
+          <div className="mt-4 flex items-center gap-4">
+            <a
+              href={FACEBOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="text-warm-white/60 hover:text-gold"
+            >
               <Facebook size={20} />
             </a>
-            <a href="#" aria-label="Instagram" className="text-warm-white/60 hover:text-gold">
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="text-warm-white/60 hover:text-gold"
+            >
               <Instagram size={20} />
             </a>
           </div>
+
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-block overflow-hidden rounded-lg"
+            aria-label="Follow us on Instagram - @vent.hood"
+          >
+            <img src="/insstaqr.jpg" alt="Instagram QR code - @vent.hood" className="h-24 w-24 object-cover" />
+          </a>
         </div>
 
         <div>

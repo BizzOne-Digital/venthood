@@ -5,6 +5,9 @@ export const EMAIL = 'info@venthood.ca';
 export const WHATSAPP = '587-573-8822';
 export const SERVICE_AREA = 'Calgary & Surrounding Areas Alberta';
 
+export const FACEBOOK_URL = 'https://www.facebook.com/share/1GyLzJ36cj/';
+export const INSTAGRAM_URL = 'https://www.instagram.com/vent.hood?stkn=MWFqMXhpd2JsMGM2eQ==';
+
 export const NAV_LINKS = [
   { label: 'Home', to: '/' },
   { label: 'Services', to: '/services' },
